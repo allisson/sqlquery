@@ -94,7 +94,6 @@ func FindAllQuery(tableName string, options *FindAllOptions) (string, []interfac
 func InsertQuery(flavor Flavor, tag, tableName string, structValue interface{}) (string, []interface{}) {
 	theStruct := sqlbuilder.NewStruct(structValue).For(sqlbuilder.Flavor(flavor))
 	ib := theStruct.InsertIntoForTag(tableName, tag, structValue)
-	ib.SQL("RETURNING *")
 	return ib.Build()
 }
 
