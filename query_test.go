@@ -51,13 +51,14 @@ func TestFindQuery(t *testing.T) {
 }
 
 func TestFindAllQuery(t *testing.T) {
-	expectedSQLQuery := `SELECT * FROM test_table WHERE id = $1 ORDER BY id asc LIMIT 50 OFFSET 10`
+	expectedSQLQuery := `SELECT * FROM test_table WHERE id = $1 ORDER BY id asc LIMIT 50 OFFSET 10 FOR UPDATE SKIP LOCKED`
 	expectedArgs := []interface{}{1}
 	options := NewFindAllOptions(PostgreSQLFlavor).
 		WithFilter("id", 1).
 		WithLimit(50).
 		WithOffset(10).
-		WithOrderBy("id asc")
+		WithOrderBy("id asc").
+		WithForUpdate("SKIP LOCKED")
 	sqlQuery, args := FindAllQuery("test_table", options)
 	assert.Equal(t, expectedSQLQuery, sqlQuery)
 	assert.Equal(t, expectedArgs, args)

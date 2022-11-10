@@ -1,10 +1,10 @@
 module github.com/allisson/sqlquery
 
-go 1.18
+go 1.19
 
 require (
-	github.com/huandu/go-sqlbuilder v1.15.1
-	github.com/stretchr/testify v1.8.0
+	github.com/huandu/go-sqlbuilder v1.16.0
+	github.com/stretchr/testify v1.8.1
 )
 
 require (
