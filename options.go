@@ -42,12 +42,14 @@ func NewFindOptions(flavor Flavor) *FindOptions {
 
 // FindAllOptions provides configuration for FindAllQuery function.
 type FindAllOptions struct {
-	Flavor  Flavor
-	Fields  []string
-	Filters map[string]interface{}
-	Limit   int
-	Offset  int
-	OrderBy string
+	Flavor        Flavor
+	Fields        []string
+	Filters       map[string]interface{}
+	Limit         int
+	Offset        int
+	OrderBy       string
+	ForUpdate     bool
+	ForUpdateMode string
 }
 
 // WithFields is a helper function to construct functional options that sets Fields field.
@@ -82,6 +84,14 @@ func (f *FindAllOptions) WithOffset(offset int) *FindAllOptions {
 func (f *FindAllOptions) WithOrderBy(orderBy string) *FindAllOptions {
 	copy := *f
 	copy.OrderBy = orderBy
+	return &copy
+}
+
+// WithForUpdate is a helper function to construct functional options that sets ForUpdate and ForUpdateMode fields.
+func (f *FindAllOptions) WithForUpdate(mode string) *FindAllOptions {
+	copy := *f
+	copy.ForUpdate = true
+	copy.ForUpdateMode = mode
 	return &copy
 }
 

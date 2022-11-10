@@ -87,6 +87,12 @@ func FindAllQuery(tableName string, options *FindAllOptions) (string, []interfac
 	if options.OrderBy != "" {
 		sb.OrderBy(options.OrderBy)
 	}
+	if options.ForUpdate {
+		sb.ForUpdate()
+		if options.ForUpdateMode != "" {
+			sb.SQL(options.ForUpdateMode)
+		}
+	}
 	return sb.Build()
 }
 
