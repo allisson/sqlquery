@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/allisson/sqlquery/compare/v1.0.1...v1.1.0) (2022-11-10)
+
+
+### Features
+
+* add WithForUpdate to support FOR UPDATE statements ([#5](https://github.com/allisson/sqlquery/issues/5)) ([deef88d](https://github.com/allisson/sqlquery/commit/deef88d95148c7e80d24189cfa056b39ec46b71e))
+
 ## [1.0.1](https://github.com/allisson/sqlquery/compare/v1.0.0...v1.0.1) (2022-09-12)
 
 
