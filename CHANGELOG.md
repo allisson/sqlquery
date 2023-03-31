@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/allisson/sqlquery/compare/v1.1.0...v1.2.0) (2023-03-31)
+
+
+### Features
+
+* update go-sqlbuilder to version 1.20.0 ([#7](https://github.com/allisson/sqlquery/issues/7)) ([3af976d](https://github.com/allisson/sqlquery/commit/3af976de3db9f70ac99458f6b0b7f7f2a8049a77))
+
 ## [1.1.0](https://github.com/allisson/sqlquery/compare/v1.0.1...v1.1.0) (2022-11-10)
 
 
