@@ -99,14 +99,14 @@ func FindAllQuery(tableName string, options *FindAllOptions) (string, []interfac
 // InsertQuery returns compiled INSERT string and args.
 func InsertQuery(flavor Flavor, tag, tableName string, structValue interface{}) (string, []interface{}) {
 	theStruct := sqlbuilder.NewStruct(structValue).For(sqlbuilder.Flavor(flavor))
-	ib := theStruct.InsertIntoForTag(tableName, tag, structValue)
+	ib := theStruct.WithTag(tag).InsertInto(tableName, structValue)
 	return ib.Build()
 }
 
 // UpdateQuery returns compiled UPDATE string and args.
 func UpdateQuery(flavor Flavor, tag, tableName string, id interface{}, structValue interface{}) (string, []interface{}) {
 	theStruct := sqlbuilder.NewStruct(structValue).For(sqlbuilder.Flavor(flavor))
-	ub := theStruct.UpdateForTag(tableName, tag, structValue)
+	ub := theStruct.WithTag(tag).Update(tableName, structValue)
 	ub.Where(ub.Equal("id", id))
 	return ub.Build()
 }
