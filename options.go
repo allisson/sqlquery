@@ -103,3 +103,54 @@ func NewFindAllOptions(flavor Flavor) *FindAllOptions {
 		Filters: make(map[string]interface{}),
 	}
 }
+
+// UpdateOptions provides configuration for UpdateWithOptionsQuery function.
+type UpdateOptions struct {
+	Flavor      Flavor
+	Assignments map[string]interface{}
+	Filters     map[string]interface{}
+}
+
+// WithAssignment is a helper function to construct functional options that sets assignments.
+func (u *UpdateOptions) WithAssignment(field string, value interface{}) *UpdateOptions {
+	copy := *u
+	copy.Assignments[field] = value
+	return &copy
+}
+
+// WithFilter is a helper function to construct functional options that sets Filters field.
+func (u *UpdateOptions) WithFilter(field string, value interface{}) *UpdateOptions {
+	copy := *u
+	copy.Filters[field] = value
+	return &copy
+}
+
+// NewUpdateOptions returns a UpdateOptions.
+func NewUpdateOptions(flavor Flavor) *UpdateOptions {
+	return &UpdateOptions{
+		Flavor:      flavor,
+		Assignments: make(map[string]interface{}),
+		Filters:     make(map[string]interface{}),
+	}
+}
+
+// DeleteOptions provides configuration for DeleteWithOptionsQuery function.
+type DeleteOptions struct {
+	Flavor  Flavor
+	Filters map[string]interface{}
+}
+
+// WithFilter is a helper function to construct functional options that sets Filters field.
+func (d *DeleteOptions) WithFilter(field string, value interface{}) *DeleteOptions {
+	copy := *d
+	copy.Filters[field] = value
+	return &copy
+}
+
+// NewDeleteOptions returns a DeleteOptions.
+func NewDeleteOptions(flavor Flavor) *DeleteOptions {
+	return &DeleteOptions{
+		Flavor:  flavor,
+		Filters: make(map[string]interface{}),
+	}
+}
