@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/allisson/sqlquery/compare/v1.2.0...v1.3.0) (2023-04-03)
+
+
+### Features
+
+* add UpdateWithOptionsQuery and DeleteWithOptionsQuery functions ([#9](https://github.com/allisson/sqlquery/issues/9)) ([cf22b33](https://github.com/allisson/sqlquery/commit/cf22b33da00afafd39d43348c295e8e1d73095ca))
+
 ## [1.2.0](https://github.com/allisson/sqlquery/compare/v1.1.0...v1.2.0) (2023-03-31)
 
 
