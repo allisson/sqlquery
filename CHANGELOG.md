@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/allisson/sqlquery/compare/v1.3.0...v1.3.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* fix the set clause on UpdateWithOptionsQuery ([#11](https://github.com/allisson/sqlquery/issues/11)) ([701ed6b](https://github.com/allisson/sqlquery/commit/701ed6b3e33b4b2c5299607793f893d4944f0205))
+
 ## [1.3.0](https://github.com/allisson/sqlquery/compare/v1.2.0...v1.3.0) (2023-04-03)
 
 
