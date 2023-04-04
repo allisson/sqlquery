@@ -165,10 +165,11 @@ func TestDeleteQuery(t *testing.T) {
 }
 
 func TestUpdateWithOptionsQuery(t *testing.T) {
-	expectedSQLQuery := `UPDATE players SET name = $1 WHERE id = $2`
-	expectedArgs := []interface{}{"Ronaldinho Bruxo", 1}
+	expectedSQLQuery := `UPDATE players SET age = $1, name = $2 WHERE id = $3`
+	expectedArgs := []interface{}{43, "Ronaldinho Bruxo", 1}
 	options := NewUpdateOptions(PostgreSQLFlavor).
 		WithAssignment("name", "Ronaldinho Bruxo").
+		WithAssignment("age", 43).
 		WithFilter("id", 1)
 	sqlQuery, args := UpdateWithOptionsQuery("players", options)
 	assert.Equal(t, expectedSQLQuery, sqlQuery)
