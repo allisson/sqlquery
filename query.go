@@ -1,6 +1,7 @@
 package sqlquery
 
 import (
+	"sort"
 	"strings"
 
 	"github.com/huandu/go-sqlbuilder"
@@ -225,9 +226,12 @@ func UpdateWithOptionsQuery(tableName string, options *UpdateOptions) (string, [
 	ub := sqlbuilder.NewUpdateBuilder()
 	ub.SetFlavor(sqlbuilder.Flavor(options.Flavor))
 	ub.Update(tableName)
+	var assignments []string
 	for key, value := range options.Assignments {
-		ub.Set(ub.Assign(key, value))
+		assignments = append(assignments, ub.Assign(key, value))
 	}
+	sort.Strings(assignments)
+	ub = ub.Set(assignments...)
 	for key, value := range options.Filters {
 		parseUpdateFilter(ub, key, value)
 	}
