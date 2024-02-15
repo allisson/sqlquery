@@ -111,9 +111,9 @@ func TestParseDeleteFilter(t *testing.T) {
 }
 
 func TestFindQuery(t *testing.T) {
-	expectedSQLQuery := `SELECT * FROM test_table WHERE id = $1`
+	expectedSQLQuery := `SELECT * FROM test_table WHERE id = $1 FOR UPDATE SKIP LOCKED`
 	expectedArgs := []interface{}{1}
-	options := NewFindOptions(PostgreSQLFlavor).WithFilter("id", 1)
+	options := NewFindOptions(PostgreSQLFlavor).WithFilter("id", 1).WithForUpdate("SKIP LOCKED")
 	sqlQuery, args := FindQuery("test_table", options)
 	assert.Equal(t, expectedSQLQuery, sqlQuery)
 	assert.Equal(t, expectedArgs, args)
