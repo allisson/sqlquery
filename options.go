@@ -12,9 +12,11 @@ type Flavor int
 
 // FindOptions provides configuration for FindQuery function.
 type FindOptions struct {
-	Flavor  Flavor
-	Fields  []string
-	Filters map[string]interface{}
+	Flavor        Flavor
+	Fields        []string
+	Filters       map[string]interface{}
+	ForUpdate     bool
+	ForUpdateMode string
 }
 
 // WithFields is a helper function to construct functional options that sets Fields field.
@@ -28,6 +30,14 @@ func (f *FindOptions) WithFields(fields []string) *FindOptions {
 func (f *FindOptions) WithFilter(field string, value interface{}) *FindOptions {
 	copy := *f
 	copy.Filters[field] = value
+	return &copy
+}
+
+// WithForUpdate is a helper function to construct functional options that sets ForUpdate and ForUpdateMode fields.
+func (f *FindOptions) WithForUpdate(mode string) *FindOptions {
+	copy := *f
+	copy.ForUpdate = true
+	copy.ForUpdateMode = mode
 	return &copy
 }
 

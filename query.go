@@ -174,6 +174,12 @@ func FindQuery(tableName string, options *FindOptions) (string, []interface{}) {
 	for key, value := range options.Filters {
 		parseSelectFilter(sb, key, value)
 	}
+	if options.ForUpdate {
+		sb.ForUpdate()
+		if options.ForUpdateMode != "" {
+			sb.SQL(options.ForUpdateMode)
+		}
+	}
 	return sb.Build()
 }
 
