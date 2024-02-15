@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/allisson/sqlquery/compare/v1.3.1...v1.4.0) (2024-02-15)
+
+
+### Features
+
+* add FindOptions.WithForUpdate support ([#13](https://github.com/allisson/sqlquery/issues/13)) ([161fdf2](https://github.com/allisson/sqlquery/commit/161fdf2d8d7b0bb17a6a7815c779f3835822e16b))
+
 ## [1.3.1](https://github.com/allisson/sqlquery/compare/v1.3.0...v1.3.1) (2023-04-04)
 
 
