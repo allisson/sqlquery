@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/allisson/sqlquery/compare/v1.4.0...v1.5.0) (2026-01-20)
+
+
+### Features
+
+* enhance documentation ([#15](https://github.com/allisson/sqlquery/issues/15)) ([51b3888](https://github.com/allisson/sqlquery/commit/51b3888da81a461e110f756bc30173d119e9f895))
+
 ## [1.4.0](https://github.com/allisson/sqlquery/compare/v1.3.1...v1.4.0) (2024-02-15)
 
 
